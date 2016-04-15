@@ -30,7 +30,7 @@ export default React.createClass({
 				<h2>Checkout</h2>
 				<NameAndAddressForm onDataChange={this.onDataChange}/>
 				<div>
-					<h4>Grand Total <span>฿{total}</span></h4>
+					<h3>Grand Total <span>฿ {total}</span></h3>
 					<button className="btn btn-primary btn-block" onClick={this.placeOrder}>Place Order Now</button>
 				</div>
 			</div>

@@ -6,7 +6,7 @@ export default React.createClass({
 		let that = this;
 
 		const products = this.props.products.map(function(product) {
-			return <Product className="col-md-4" key={product.id} product={product} onAddToCart={that.props.onAddToCart}/>
+			return <Product className="col-md-3" key={product.id} product={product} onAddToCart={that.props.onAddToCart}/>
 		});
 
 		return (

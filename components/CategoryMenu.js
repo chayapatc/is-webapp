@@ -8,9 +8,8 @@ export default React.createClass({
 
 		return (
 			<div className="form-inline form-group">
-				<label>Category</label>&nbsp;
 				<select className="form-control" onChange={this.props.onCategorySelect}>
-					<option>All</option>
+					<option>All Categories</option>
 					{options}
 				</select>
 			</div>

@@ -27,10 +27,10 @@ export default React.createClass({
 		return (
 			<div>
 				<h2>Shopping Cart</h2>
-				<table className="table">
+				<table className="table cart-item-table">
 					<thead>
 						<tr>
-							<th>Image</th>
+							<th>Product Image</th>
 							<th>Product Name</th>
 							<th>Price</th>
 							<th>Qty.</th>
@@ -41,16 +41,12 @@ export default React.createClass({
 						{productList}
 					</tbody>
 				</table>
-				<table className="table">
+				<table className="table grand-total-table">
 					<colgroup>
 						<col/>
 						<col width="1"/>
 					</colgroup>
 					<tbody>
-						<tr>
-							<td className="text-right">Sub Total</td>
-							<td className="text-right">{total}</td>
-						</tr>
 						<tr>
 							<td className="text-right"><h3>Grand Total</h3></td>
 							<td className="text-right"><h3>{total}</h3></td>

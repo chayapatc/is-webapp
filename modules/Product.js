@@ -77,8 +77,8 @@ export default React.createClass({
 
 	addItemToCart(item) {
     	let cartItems = this.getCartItems();
-    	let matchItem = cartItems.filter(function(item) {
-    		return item.product_code === item.product_code;
+    	let matchItem = cartItems.filter(function(cartItem) {
+    		return cartItem.product_code === item.product_code;
     	})[0];
 
     	if(matchItem) {
