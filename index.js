@@ -15,7 +15,7 @@ render((
   		<Route path="/product/:id" component={Product}/>
     	<Route path="/cart" component={Cart}/>
     	<Route path="/checkout" component={Checkout}/>
-    	<Route path="/checkout/complete" component={CheckoutComplete}/>
+    	<Route path="/checkout/complete/:orderNo" component={CheckoutComplete}/>
     </Route>
   </Router>
 ), document.getElementById('app'));

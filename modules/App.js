@@ -24,7 +24,6 @@ export default React.createClass({
 					<ul>
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/cart">Cart <span className="badge">{this.state.cartItems.length}</span></Link></li>
-						<li><Link to="/checkout">Checkout</Link></li>
 					</ul>
 				</nav>
 				{this.props.children}
