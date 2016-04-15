@@ -26,10 +26,12 @@ export default React.createClass({
 						<h2>{this.state.product.name}</h2>
 						<h4>฿ {this.state.product.price}</h4>
 						<div dangerouslySetInnerHTML={this.rawMarkup()}></div>
-						<div className="form-inline">
+						<div className="form-inline quantity-form">
 							<input type="number" className="form-control" value={this.state.quantity} onChange={this.onQuantityChange}/>
-							<button className="btn" onClick={this.addToCart}>Buy</button>
+							<button className="btn">+</button>
+							<button className="btn">-</button>
 						</div>
+						<button className="btn btn-primary" onClick={this.addToCart}>Add to cart</button>
 					</div>
 				</div>
 			</div>
@@ -64,7 +66,7 @@ export default React.createClass({
 			product_name: product.name,
 			product_image: product.cover_image,
 			price: product.price,
-			quantity: 1,
+			quantity: this.state.quantity,
 			total: product.price
 		};
 

@@ -134,10 +134,20 @@ a:focus {
 	margin: auto;
 }
 
-.grand-total-table {
-	
-}
-
 .grand-total-table > tbody > tr > td {
 	border-color: #ebebeb;
+}
+
+.quantity-form {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.quantity-form > .form-control {
+	margin-right: 8px;
+	width: 60px;
+}
+
+.quantity-form > .btn {
+	margin-right: 2px;
 }
