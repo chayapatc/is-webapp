@@ -20,9 +20,9 @@ export default React.createClass({
 	render() {
 		return (
 			<div className="container">
-				<nav>
+				<nav className="navbar">
+					<div className="brand"><Link to="/">Home</Link></div>
 					<ul>
-						<li><Link to="/">Home</Link></li>
 						<li><Link to="/cart">Cart <span className="badge">{this.state.cartItems.length}</span></Link></li>
 					</ul>
 				</nav>

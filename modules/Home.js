@@ -48,16 +48,47 @@ export default React.createClass({
     },
 
     onCategorySelect(e) {
-    	var categoryId = Number(e.target.value);
+    	const categoryId = Number(e.target.value);
     	this.loadProducts(categoryId);
     },
 
-    onAddToCart(product) {
-    	product.quantity = 1;
-    	
-    	let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    	cartItems.push(product);
+    onAddToCart(productId) {
+    	const product = this.state.products.filter(function(product) {
+    		return product.id === productId;
+    	})[0];
+
+    	const cartItems = this.getCartItems();
+
+    	let matchItem = cartItems.filter(function(item) {
+    		return item.product_code === productId;
+    	})[0];
+
+    	if(matchItem) {
+    		matchItem.quantity += 1;
+    		matchItem.total = matchItem.price * matchItem.quantity;
+
+    		this.addItemToCart(matchItem);
+    	} else {
+	    	const cartItem = {
+	    		product_code: product.id,
+	    		product_name: product.name,
+	    		product_image: product.cover_image,
+	    		price: product.price,
+	    		quantity: 1,
+	    		total: product.price
+	    	};    		
+    		this.addItemToCart(cartItem);
+    	}
+    },
+
+	getCartItems() {
+    	return JSON.parse(localStorage.getItem('cart')) || [];
+	},
+
+	addItemToCart(item) {
+    	let cartItems = this.getCartItems();
+    	cartItems.push(item);
 
     	localStorage.setItem('cart', JSON.stringify(cartItems));
-    }
+	}
 });

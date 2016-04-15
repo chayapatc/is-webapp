@@ -17,7 +17,7 @@ export default React.createClass({
 
 	render() {
 		const productList = this.state.cartItems.map(function(product) {
-			return <CartItemRow product={product} key={product.id}/>
+			return <CartItemRow product={product} key={product.product_code}/>
 		});
 
 		const total = this.state.cartItems.reduce(function(total, product) {

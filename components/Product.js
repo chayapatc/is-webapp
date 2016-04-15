@@ -19,6 +19,6 @@ export default React.createClass({
 	},
 
 	addToCart() {
-		this.props.onAddToCart(this.props.product);
+		this.props.onAddToCart(this.props.product.id);
 	}
 })
