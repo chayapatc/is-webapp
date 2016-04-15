@@ -57,28 +57,16 @@ export default React.createClass({
     		return product.id === productId;
     	})[0];
 
-    	const cartItems = this.getCartItems();
+    	const cartItem = {
+    		product_code: product.id,
+    		product_name: product.name,
+    		product_image: product.cover_image,
+    		price: product.price,
+    		quantity: 1,
+    		total: product.price
+    	};
 
-    	let matchItem = cartItems.filter(function(item) {
-    		return item.product_code === productId;
-    	})[0];
-
-    	if(matchItem) {
-    		matchItem.quantity += 1;
-    		matchItem.total = matchItem.price * matchItem.quantity;
-
-    		this.addItemToCart(matchItem);
-    	} else {
-	    	const cartItem = {
-	    		product_code: product.id,
-	    		product_name: product.name,
-	    		product_image: product.cover_image,
-	    		price: product.price,
-	    		quantity: 1,
-	    		total: product.price
-	    	};    		
-    		this.addItemToCart(cartItem);
-    	}
+		this.addItemToCart(cartItem);
     },
 
 	getCartItems() {
@@ -87,7 +75,16 @@ export default React.createClass({
 
 	addItemToCart(item) {
     	let cartItems = this.getCartItems();
-    	cartItems.push(item);
+    	let matchItem = cartItems.filter(function(item) {
+    		return item.product_code === item.product_code;
+    	})[0];
+
+    	if(matchItem) {
+    		matchItem.quantity += item.quantity;
+    		matchItem.total = matchItem.price * matchItem.quantity;
+    	} else {
+    		cartItems.push(item);    		
+    	}
 
     	localStorage.setItem('cart', JSON.stringify(cartItems));
 	}
