@@ -3,7 +3,9 @@ import React from 'react';
 export default React.createClass({
 	render() {
 		return (
-			<div>Checkout</div>
+			<div>
+				<h2>Checkout</h2>
+			</div>
 		)
 	}
 });
